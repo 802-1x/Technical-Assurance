@@ -7,7 +7,7 @@ function initialDomainCompliance {
     #>
 
     [CmdletBinding()]
-    [OutputType([array], [array], [array], [integer])]
+    [OutputType([array], [array], [array], [int])]
     param (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
