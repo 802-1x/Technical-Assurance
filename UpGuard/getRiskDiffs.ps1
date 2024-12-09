@@ -16,7 +16,7 @@ function getRiskDiffs {
 	$differentialPeriod = getRiskDiffsVariables
 
     # Validate headers
-    if (-not $headers.ContainsKey("Authorization")) {
+    if (-not $headers -or -not $headers.ContainsKey("Authorization")) {
         throw "Headers must contain an 'Authorization' key and cannot be null or empty."
     }
 
