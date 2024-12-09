@@ -24,7 +24,7 @@ function reportUpGuardMetrics {
     $domainCoverageGreenThreshold, $domainCoverageAmberThreshold, $automatedScoreGreenThreshold, $automatedScoreAmberThreshold, $lowestDomainScoreGreenThreshold, $lowestDomainScoreAmberThreshold, $SMTPServer, $fromAddress, $toAddress = reportUpGuardMetricsVariables
 
     # Validate necessary variables
-    if (-not $activeDomains -or -not $missingDomainsFromUpGuard -or -not $automatedScore -or -not $vulnerabilitiesUpGuard) {
+    if (-not $activeDomains -or -not $automatedScore) {
         throw "Required data is missing."
     }
 
