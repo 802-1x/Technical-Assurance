@@ -55,7 +55,7 @@ function reportRiskDifferentials {
 		<b><u>UpGuard Risk Differentials</b></u>
 		<br />
 		<br />
-		The following is an automated report of the risk differentials in the last $differentialPeriod days period. :
+		The following is an automated report of the risk differentials in the last $differentialPeriod days period:
 		<br />
 		<br />
 		$table
