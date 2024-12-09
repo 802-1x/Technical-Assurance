@@ -5,7 +5,9 @@ function compareUpGuardCloudFlareDomains {
     .OUTPUTS
         A list of domains missing from UpGuard.
     #>
-
+    
+    [CmdletBinding()]
+    [OutputType([array])]
     param (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
