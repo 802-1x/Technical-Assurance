@@ -8,9 +8,11 @@ function compareUpGuardCloudFlareDomains {
 
     param (
         [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
         [array]$dnsRecords,
 
         [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
         [array]$allDomains
     )
 
