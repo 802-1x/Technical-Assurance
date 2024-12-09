@@ -7,6 +7,7 @@ function getRiskDiffs {
     #>
 
     [CmdletBinding()]
+    [OutputType([array])]
     param (
         [Parameter(Mandatory = $true)]
 	[ValidateNotNullOrEmpty()]
