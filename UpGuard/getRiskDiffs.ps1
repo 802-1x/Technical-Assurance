@@ -13,11 +13,11 @@ function getRiskDiffs {
     )
 
     # Retrieve configuration file values
-	  $differentialPeriod = getRiskDiffsVariables
+	$differentialPeriod = getRiskDiffsVariables
 
     # Validate headers
     if (-not $headers.ContainsKey("Authorization")) {
-        throw "Headers must contain an 'Authorization' key."
+        throw "Headers must contain an 'Authorization' key and cannot be null or empty."
     }
 
     $currentDate = Get-Date
@@ -34,19 +34,19 @@ function getRiskDiffs {
         foreach ($riskItem in $riskDifferenceResponse.risksIntroduced.diffs) {
             foreach ($item in $riskItem.cloudscanDiffs) {
                 $obj = [PSCustomObject]@{
-                    riskCategory = $riskItem.category
-                    riskDescription = $riskItem.description
-                    riskSeverityName = $riskItem.severityName
-                    riskName = $riskItem.name
-                    riskHostname = $item.Hostname
-                    riskProperty = $item.Property
-                    riskExpected = $item.Expected
-                    riskDateA = $item.DateA
-                    riskDateB = $item.DateB
-                    riskStatusA = $item.StatusA
-                    riskStatusB = $item.StatusB
-                    riskMetaValueA = $item.MetaValueA
-                    riskMetaValueB = $item.MetaValueB
+                    riskCategory = if ($riskItem.category) { $riskItem.category } else { $null }
+                    riskDescription = if ($riskItem.description) { $riskItem.description } else { $null }
+                    riskSeverityName = if ($riskItem.severityName) { $riskItem.severityName } else { $null }
+                    riskName = if ($riskItem.name) { $riskItem.name } else { $null }
+                    riskHostname = if ($item.Hostname) { $item.Hostname } else { $null }
+                    riskProperty = if ($item.Property) { $item.Property } else { $null }
+                    riskExpected = if ($item.Expected) { $item.Expected } else { $null }
+                    riskDateA = if ($item.DateA) { $item.DateA } else { $null }
+                    riskDateB = if ($item.DateB) { $item.DateB } else { $null }
+                    riskStatusA = if ($item.StatusA) { $item.StatusA } else { $null }
+                    riskStatusB = if ($item.StatusB) { $item.StatusB } else { $null }
+                    riskMetaValueA = if ($item.MetaValueA) { $item.MetaValueA } else { $null }
+                    riskMetaValueB = if ($item.MetaValueB) { $item.MetaValueB } else { $null }
                 }
 
                 $riskDifferentials += $obj
