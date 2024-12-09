@@ -9,6 +9,7 @@ function getRiskDiffs {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
+	[ValidateNotNullOrEmpty()]
         [hashtable]$headers
     )
 
