@@ -13,12 +13,10 @@ function reportUpGuardMetrics {
         [ValidateNotNullOrEmpty()]
         [array]$activeDomains,
 
-		[Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
+		[Parameter(Mandatory = $false)]
         [array]$missingDomainsFromUpGuard,
 
-    [Parameter(Mandatory = $true)]
-        [ValidateNotNullOrEmpty()]
+        [Parameter(Mandatory = $false)]
         [array]$vulnerabilitiesUpGuard
     )
 
